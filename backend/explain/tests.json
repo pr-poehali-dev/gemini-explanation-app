@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Объяснение темы просто",
+      "method": "POST",
+      "path": "/",
+      "body": { "topic": "блокчейн", "level": "просто" },
+      "expectedStatus": 200,
+      "expectedBody": { "explanation": "string" },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Ошибка без темы",
+      "method": "POST",
+      "path": "/",
+      "body": { "topic": "" },
+      "expectedStatus": 400
+    }
+  ]
+}
